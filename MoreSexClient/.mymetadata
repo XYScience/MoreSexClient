@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="MoreSexClient"
+  id="myeclipse.1428491736937"
+  context-root="/MoreSexClient"
+  j2ee-spec="6.0"
+  archive="MoreSexClient.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

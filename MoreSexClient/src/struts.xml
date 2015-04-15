@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<package name="moresex" extends="json-default" namespace="/">
+		<action name="getSkillJson" class="com.moresex.action.JSONAction" method="skillJson">
+			<result type="json"></result>
+		</action>
+		<action name="getHeathlJson" class="com.moresex.action.JSONAction" method="meathlJson">
+			<result type="json"></result>
+		</action>
+		<action name="getPhysiologyJson" class="com.moresex.action.JSONAction" method="physiologyJson">
+			<result type="json"></result>
+		</action>
+		<action name="getMentalityJson" class="com.moresex.action.JSONAction" method="mentalityJson">
+			<result type="json"></result>
+		</action>
+		<action name="getBirthControlJson" class="com.moresex.action.JSONAction" method="birthControlJson">
+			<result type="json"></result>
+		</action>
+		<action name="getRecommendJson" class="com.moresex.action.JSONAction" method="recommendJson">
+			<result type="json"></result>
+		</action>
+		<action name="clickAction" class="com.moresex.action.JSONAction" method="getClick">
+			<result name="success">/success.jsp</result>
+		</action>
+		<action name="ContentAction" class="com.moresex.action.JSONAction" method="getContent">
+			<result type="json"></result>
+		</action>
+	</package>
+
+</struts>    
