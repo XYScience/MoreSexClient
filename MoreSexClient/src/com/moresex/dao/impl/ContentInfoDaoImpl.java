@@ -25,7 +25,7 @@ public class ContentInfoDaoImpl implements ContentInfoDao {
 	private Query mQuery;
 
 	@Override
-	public List<Article> getContent(Integer ids) {
+	public String getContent(Integer ids) {
 
 		mSession = HibernateSessionFactory.getSession();
 		mQuery = mSession.createQuery("from Article at where at.contentId="
@@ -34,9 +34,14 @@ public class ContentInfoDaoImpl implements ContentInfoDao {
 
 		List<Article> contentList = mQuery.list();
 
+		String content = null;
+		for (int i = 0; i < contentList.size(); i++) {
+			content = content + contentList.get(i).getContent();
+		}
+
 		mSession.close();
 
-		return contentList;
+		return content;
 
 	}
 

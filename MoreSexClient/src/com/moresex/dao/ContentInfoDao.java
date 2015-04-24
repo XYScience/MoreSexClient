@@ -1,8 +1,5 @@
 package com.moresex.dao;
 
-import java.util.List;
-
-import com.moresex.entity.Article;
 
 /**
  * @description 得到文章内容
@@ -16,5 +13,5 @@ import com.moresex.entity.Article;
  */
 public interface ContentInfoDao {
 
-	public List<Article> getContent(Integer id);
+	public String getContent(Integer id);
 }

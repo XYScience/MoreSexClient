@@ -27,6 +27,9 @@
 		<action name="ContentAction" class="com.moresex.action.JSONAction" method="getContent">
 			<result type="json"></result>
 		</action>
+		<action name="getArticleAction" class="com.moresex.action.JSONAction" method="getArticleContent">
+			<result type="json"></result>
+		</action>
 	</package>
 
 </struts>    

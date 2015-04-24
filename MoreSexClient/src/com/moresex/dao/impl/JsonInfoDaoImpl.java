@@ -31,7 +31,7 @@ public class JsonInfoDaoImpl {
 	public List<Article> getInfo_skill(int page) {
 		mSession = HibernateSessionFactory.getSession();
 		mQuery = mSession
-				.createQuery("select ar from Article ar where ar.type='biyun' group by ar.contentId");// 去除重复分页
+				.createQuery("select ar from Article ar where ar.type='shenghuo' group by ar.contentId");// 去除重复分页
 		mQuery.setCacheable(true);// 激活查询缓存
 		mQuery.setFirstResult((page - 1) * PAGE_SIZE);
 		mQuery.setMaxResults(PAGE_SIZE);
@@ -112,7 +112,22 @@ public class JsonInfoDaoImpl {
 		mQuery.setMaxResults(PAGE_SIZE);
 
 		mInfoList = mQuery.list();
-		System.out.println("1111111:" + mInfoList.get(0).getContentId());
+
+		mSession.close();
+
+		return mInfoList;
+	}
+
+	// 读取一条完整文章记录
+	public List<Article> getInfoArticle(int ids) {
+		mSession = HibernateSessionFactory.getSession();
+		mQuery = mSession.createQuery("from Article f where f.id=:ids ");
+		mQuery.setParameter("ids", ids);
+
+		mQuery.setCacheable(true);// 激活查询缓存
+
+		mInfoList = mQuery.list();
+
 		mSession.close();
 
 		return mInfoList;

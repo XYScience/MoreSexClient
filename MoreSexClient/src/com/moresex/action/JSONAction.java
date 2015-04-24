@@ -40,6 +40,7 @@ public class JSONAction extends ActionSupport implements ServletRequestAware,
 	private Integer id = 1;
 	private JsonInfoDaoImpl mJsonInfoDao = new JsonInfoDaoImpl();
 	private Gson mGson;
+	private String mContent;
 
 	public String getFormat() {
 		return format;
@@ -150,8 +151,18 @@ public class JSONAction extends ActionSupport implements ServletRequestAware,
 	public void getContent() {
 
 		ContentInfoDao contentInfoDao = new ContentInfoDaoImpl();
-		mInfoList = contentInfoDao.getContent(id);
-		getJson();
+		mContent = contentInfoDao.getContent(id);
+		try {
+			mResponse.setContentType("text/json; charset = utf-8");// 解决中文乱码问题
+			mResponse.setCharacterEncoding("utf-8");
+			this.mResponse.getWriter().write(mContent);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
+	public void getArticleContent() {
+		mInfoList = mJsonInfoDao.getInfoArticle(id);
+		getJson();
 	}
 }
